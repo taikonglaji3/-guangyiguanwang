@@ -49,10 +49,10 @@ url45:'https://president.gzhmu.edu.cn/',#校长信箱
 url46:'https://jinyu.gzhmu.edu.cn/',#金域检验学院'''
 
 namelist=re.findall("(\d+):'(.*)',#(.*)\s",str)
-prt={number:name for number,web,name in namelist}
 weblist={number:web for number,web,name in namelist}
-print(weblist)
-print(prt)
+for number,web,name in namelist:
+    print(name+':'+number)
+
 
 num=input('输入网站对应数字：')
 
