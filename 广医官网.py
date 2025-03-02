@@ -1,7 +1,9 @@
+import tkinter as tk
+from tkinter import ttk, messagebox
 import webbrowser
 import re
 
-str='''url1:'https://www.gzhmu.edu.cn/',#官网
+_str = '''url1:'https://www.gzhmu.edu.cn/',#官网
 url2:'https://jwc.gzhmu.edu.cn/',#教务处
 url3:'https://gzhmu.fanya.chaoxing.com/portal',#e学中心
 url4:'https://zs.gzhmu.edu.cn/',#本科招生网
@@ -43,17 +45,60 @@ url39:'https://xsc.gzhmu.edu.cn/',#学生工作处
 url40:'https://das.gzhmu.edu.cn/',#档案室
 url41:'https://majors.gzhmu.edu.cn/',#专业介绍
 url42:'https://ygc.gzhmu.edu.cn/',#医院管理处
-url43:'https://gzxi.cbpt.cnki.net/WKD/WebPublication/index.aspx?mid:gzxi',#学报
+url43:'https://gzxi.cbpt.cnki.net/portal',#学报
 url44:'https://bwc.gzhmu.edu.cn/',#保卫处
 url45:'https://president.gzhmu.edu.cn/',#校长信箱
-url46:'https://jinyu.gzhmu.edu.cn/',#金域检验学院'''
+url46:'https://jinyu.gzhmu.edu.cn/',#金域检验学院
+url47:'https://webvpn.gzhmu.edu.cn/'#信息与数据管理中心
+url48:'https://fao.gzhmu.edu.cn/'#国际教育学院
+url49:'https://ms.gzhmu.edu.cn/'#正版软件
+url50:'https://hqc.gzhmu.edu.cn/'#后勤校产管理处
+url51:'https://lims.gzhmu.edu.cn/client'#大型仪器共享平台
+url52:'https://xb.gzhmu.edu.cn/index.htm'#党委办公室
+url53:'https://v-nurse.gzhmu.edu.cn/'#护理虚拟教学中心
+url54:'http://libsmart.gzhmu.edu.cn/app/scorpio-site/'#图书馆电子资源
+url55:'https://jyxxzx.gdmu.edu.cn/index.htm'#网络与信息中心
+'''
 
-namelist=re.findall("(\d+):'(.*)',#(.*)\s",str)
-weblist={number:web for number,web,name in namelist}
-for number,web,name in namelist:
-    print(name+':'+number)
+# 使用正则提取信息
+namelist = re.findall("(\d+):'(.*)',#(.*)\s", _str)
+weblist = {number: web for number, web, name in namelist}
+name_to_number = {name: number for number, web, name in namelist}  # 名称到编号的映射
 
+# 创建主窗口
+root = tk.Tk()
+root.title("广医官网 - 网站选择工具")
+root.geometry("400x300")
 
-num=input('输入网站对应数字：')
+# 创建一个框架来包含组件
+frame = ttk.Frame(root, padding="10")
+frame.pack(fill=tk.BOTH, expand=True)
 
-webbrowser.open(weblist[num])
+# 提示标签
+label = ttk.Label(frame, text="请选择广医相关网站：")
+label.pack(pady=10)
+
+# 创建一个下拉菜单
+combobox = ttk.Combobox(frame, values=list(name_to_number.keys()), state="readonly", width=30)
+combobox.pack(pady=10)
+combobox.set("官网")  # 默认选择第0项
+
+# 按钮点击事件
+def on_select():
+    selected_site = combobox.get()
+    if selected_site in name_to_number:
+        number = name_to_number[selected_site]
+        url = weblist.get(number, None)
+        if url:
+            webbrowser.open(url)
+        else:
+            messagebox.showerror("错误", "找不到对应的网址")
+    else:
+        messagebox.showerror("错误", "请选择一个网站")
+
+# 创建按钮
+button = ttk.Button(frame, text="打开网站", command=on_select)
+button.pack(pady=10)
+
+# 运行主循环
+root.mainloop()
