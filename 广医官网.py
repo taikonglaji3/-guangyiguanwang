@@ -49,15 +49,15 @@ url43:'https://gzxi.cbpt.cnki.net/portal',#学报
 url44:'https://bwc.gzhmu.edu.cn/',#保卫处
 url45:'https://president.gzhmu.edu.cn/',#校长信箱
 url46:'https://jinyu.gzhmu.edu.cn/',#金域检验学院
-url47:'https://webvpn.gzhmu.edu.cn/'#信息与数据管理中心
-url48:'https://fao.gzhmu.edu.cn/'#国际教育学院
-url49:'https://ms.gzhmu.edu.cn/'#正版软件
-url50:'https://hqc.gzhmu.edu.cn/'#后勤校产管理处
-url51:'https://lims.gzhmu.edu.cn/client'#大型仪器共享平台
-url52:'https://xb.gzhmu.edu.cn/index.htm'#党委办公室
-url53:'https://v-nurse.gzhmu.edu.cn/'#护理虚拟教学中心
-url54:'http://libsmart.gzhmu.edu.cn/app/scorpio-site/'#图书馆电子资源
-url55:'https://jyxxzx.gdmu.edu.cn/index.htm'#网络与信息中心
+url47:'https://webvpn.gzhmu.edu.cn/',#信息与数据管理中心
+url48:'https://fao.gzhmu.edu.cn/',#国际教育学院
+url49:'https://ms.gzhmu.edu.cn/',#正版软件
+url50:'https://hqc.gzhmu.edu.cn/',#后勤校产管理处
+url51:'https://lims.gzhmu.edu.cn/client',#大型仪器共享平台
+url52:'https://xb.gzhmu.edu.cn/index.htm',#党委办公室
+url53:'https://v-nurse.gzhmu.edu.cn/',#护理虚拟教学中心
+url54:'http://libsmart.gzhmu.edu.cn/app/scorpio-site/',#图书馆电子资源
+url55:'https://jyxxzx.gdmu.edu.cn/index.htm',#网络与信息中心
 '''
 
 # 使用正则提取信息
